@@ -5,10 +5,8 @@ import Member from './memeber'
 
 ReactDOM.render(
     
-        <Family lastName="Souza">
-            <Member name="Lucas" />
-            <Member name="Rafael" />
-            <Member name="Julia" />
+        <Family>
+            <Member name="Lucas" lastName="Souza" />
         </Family>
     
     , document.getElementById('app')
