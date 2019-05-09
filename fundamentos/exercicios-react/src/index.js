@@ -6,6 +6,6 @@ const elemento = document.getElementById('root')
 
 ReactDOM.render(
 <div>
-    <PrimeiroComponente />
+    <PrimeiroComponente texto={"Olá React"} />
 </div>
 , elemento)
