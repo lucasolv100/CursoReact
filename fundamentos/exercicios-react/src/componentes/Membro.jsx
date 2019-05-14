@@ -2,6 +2,6 @@ import React from 'react'
 
 export default props => 
 <div>
-    {props.nome}
-    <strong>{props.sobrenome}</strong>
+    <span>{props.nome}  </span>
+     <strong>{props.sobrenome}</strong>
 </div>
