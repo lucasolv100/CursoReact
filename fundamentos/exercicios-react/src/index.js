@@ -6,8 +6,9 @@ import FamiliaSilva from './componentes/FamiliaSilva' */
 /* import Familia from './componentes/Familia'
 import Membro from './componentes/Membro'; */
 // import ComponenteComFuncao from './componentes/ComponenteComFuncao'
-import TabelaComRowSpan from './componentes/TabelaComRowSpan'
+// import TabelaComRowSpan from './componentes/TabelaComRowSpan'
 // import MultiElementos from './componentes/MultiElementos'
+import Pai from './componentes/Pai'
 
 const elemento = document.getElementById('root')
 
@@ -23,6 +24,7 @@ ReactDOM.render(
         <Membro nome="André" />
     </Familia> */}
     {/* <ComponenteComFuncao /> */}
-    <TabelaComRowSpan/>
+    {/* <TabelaComRowSpan/> */}
+    <Pai/>
     </div>
 , elemento)
