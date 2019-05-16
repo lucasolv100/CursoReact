@@ -9,7 +9,9 @@ import Membro from './componentes/Membro'; */
 // import TabelaComRowSpan from './componentes/TabelaComRowSpan'
 // import MultiElementos from './componentes/MultiElementos'
 // import Pai from './componentes/Pai'
-import Contador from './componentes/Contador'
+// import Contador from './componentes/Contador'
+import Hook from './componentes/Hooks'
+// 
 
 const elemento = document.getElementById('root')
 
@@ -26,7 +28,7 @@ ReactDOM.render(
     </Familia> */}
     {/* <ComponenteComFuncao /> */}
     {/* <TabelaComRowSpan/> */}
-    <Contador numero={0}/>
+    <Hook/>
     {/* <Pai/> */}
     </div>
 , elemento)
