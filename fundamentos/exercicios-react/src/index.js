@@ -8,7 +8,8 @@ import Membro from './componentes/Membro'; */
 // import ComponenteComFuncao from './componentes/ComponenteComFuncao'
 // import TabelaComRowSpan from './componentes/TabelaComRowSpan'
 // import MultiElementos from './componentes/MultiElementos'
-import Pai from './componentes/Pai'
+// import Pai from './componentes/Pai'
+import Contador from './componentes/Contador'
 
 const elemento = document.getElementById('root')
 
@@ -25,6 +26,7 @@ ReactDOM.render(
     </Familia> */}
     {/* <ComponenteComFuncao /> */}
     {/* <TabelaComRowSpan/> */}
-    <Pai/>
+    <Contador numero={0}/>
+    {/* <Pai/> */}
     </div>
 , elemento)
