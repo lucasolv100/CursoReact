@@ -8,37 +8,58 @@ const initialState = {
     displayValue: '0',
     clearDisplay: false,
     operation: null,
-    value: [0,0],
+    value: [0, 0],
     current: 0
 }
 
 export default class Calculadora extends Component {
 
-    state = {...initialState}
+    state = { ...initialState }
 
     limpa() {
-        this.setState({...initialState})
+        this.setState({ ...initialState })
     }
-    fazerOperacao(operacao) {
-        console.log(operacao)
+    fazerOperacao(operation) {
+        if (this.state.current === 0) {
+            this.setState({ operation, current: 1, clearDisplay: true })
+        }
+        else {
+            const equals = operation === '='
+            const currentOperation = this.state.operation
+            const value = [...this.state.value]
+            try {
+                value[0] = eval(`${value[0]} ${currentOperation} ${value[1]}`)
+            } catch (e) {
+                value[0] = this.state.value[0]
+            }
+
+            value[1] = 0
+
+            this.setState({
+                displayValue: value[0],
+                operation: equals ? null : operation,
+                current: equals ? 0 : 1,
+                clearDisplay: !equals,
+                value
+            })
+        }
     }
     adicionaDigito(digito) {
-        if(digito === '.' && this.state.displayValue.includes('.'))
-        {
+        if (digito === '.' && this.state.displayValue.includes('.')) {
             return
         }
 
         const clearDisplay = this.state.displayValue === '0' || this.state.clearDisplay
         const currentValue = clearDisplay ? '' : this.state.displayValue
         const displayValue = currentValue + digito
-        this.setState({displayValue, clearDisplay: false})
+        this.setState({ displayValue, clearDisplay: false })
 
-        if(digito != '.'){
+        if (digito != '.') {
             const i = this.state.current
             const newValue = parseFloat(displayValue)
             const value = [...this.state.value]
             value[i] = newValue
-            this.setState({value})
+            this.setState({ value })
         }
     }
 
@@ -47,7 +68,7 @@ export default class Calculadora extends Component {
 
         const addDigito = digito => this.adicionaDigito(digito)
         const operacao = op => this.fazerOperacao(op)
-        
+
         return (
             <div className='calculadora'>
                 <Display value={this.state.displayValue} />
@@ -67,7 +88,7 @@ export default class Calculadora extends Component {
                 <Button label="+" operation={true} click={operacao} />
                 <Button label="0" click={addDigito} double={true} />
                 <Button label="." click={addDigito} />
-                <Button label="=" operation={true} />
+                <Button label="=" operation={true} click={operacao} />
             </div>
         )
     }
